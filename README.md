@@ -14,6 +14,30 @@ The bootcamp uses the **official [Arduino Sensor Kit](https://sensorkit.arduino.
 
 Full setup instructions are on the learning platform: **Arduino Bootcamp, Page 1: What is Mechatronics?**
 
+1. What is the device?
+The device is a sport specific prosthetic arm designed for Aaron to help him return to doing what he loves most, rock climbing. The main feature is a strong climbing attacchment that can grip and hold onto climbing holds. The device will sense the force and respond by gripping on securely to help Aaron stay in control while climbing.
+Who is it for?
+The prosthetic is for Aaron who has a mid section trans radial amputation of his right arm. Aaron enjoys bush walking and rock climbing and want to be able to climb again. The prosthetic has to be durable and strong and lightweight and comfortable enough for him to use during rock climbing.
+Why is it needed?
+The prosthetic is neede because of the traumatic amputation Aaron suffered. His medical notes confirm a mid-section trans-radial amputation of the right arm, and daily activites being difficult. A specialised prosthetic would address his specific need for a device that can withstand the physical demands of rock climbing.
+How will it help?
+The climbing prosthetic will allow Aaron to grip climbing holds more effectively and improve his balance, stability and control while climbing. This will help him safely participate in an activity he enjoys and increase his independence during physical activities and everyday tasks. Most importantly, the device will help Aaron work towards returning to rock climbing and improve his overall quality of life
+
+The prosthetic is for Aaron who has a mid section trans radial amputation of his right arm. Aaron enjoys bush walking and rock climbing and want to be able to climb again. The prosthetic has to be durable and strong and lightweight and comfortable enough for him to use during rock climbing.
+
+
+2.Hi, my name is Aaron, and I love to bush walk and rock climb. A few years ago, I was hiking in the Utah Mountains in America when I fell through a crevasse, and a large boulder crushed my arm forearm. Long story short, I now don't have a right arm, making climbing and performing daily activities difficult. Mostly I really miss being able to rock climb. What I need is a sports-specific prosthetic so I can climb again!
+
+3.<img width="1153" height="2048" alt="image" src="https://github.com/user-attachments/assets/61adc4d3-5fd6-44f8-95be-b80686fed40a" />
+
+First component is a emg sensor.
+
+
+
+
+
+
+
 ## The working rhythm
 
 **Write** the code in your Codespace, **Upload** it to the Arduino, **Test** it with the sensor kit, then **Commit and Push** every working solution with a clear message and a photo of your build.
