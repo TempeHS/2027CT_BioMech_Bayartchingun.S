@@ -32,25 +32,38 @@
 
 #include <Servo.h>
 
+<InlineEntity>Servo</InlineEntity> myservo; // Create servo object
+const int buttonPin = 2; // Push button connected to digital pin 2
+const int servoPin = 9;  // Servo signal wire connected to pin 9
 
-const int SERVO_PIN = 3;  // Grove connector to D3 (PWM capable)
-const int BUTTON_PIN = 4;  // Grove Button on D4
-
-Servo myServo;
+int currentAngle = 90;   // Starting position
+const int targetAngle = 180; // Angle to move toward when pressed
+const int angleStep = 2;   // Speed of movement
 
 void setup() {
-  myServo.attach(SERVO_PIN);   // servo signal on D3
-  myServo.write(90);           // move to the middle
+  Serial.begin(115200); // Set baud rate to 9600
+  myservo.attach(servoPin); // Attach servo to pin 9
+  pinMode(buttonPin, INPUT_PULLUP); // Button uses internal pull-up resistor
+  myservo.write(currentAngle);
 }
 
 void loop() {
-  myServo.write(0);
-  delay(1000);
-  myServo.write(45);
-  delay(1000);
-  myServo.write(135);
-  delay(1000);
-  myServo.write(180);
-  delay(1000);
+  // Read button state (LOW means pressed when using INPUT_PULLUP)
+  int buttonState = digitalRead(buttonPin);
+
+  if (buttonState == LOW) {
+    // Move servo while button is held down
+    currentAngle += angleStep;
+    if (currentAngle > 180) {
+      currentAngle = 180; // Cap at 180 degrees
+    }
+    myservo.write(currentAngle);
+    Serial.print("Servo Angle: ");
+    Serial.println(currentAngle);
+    delay(20); // Control movement speed
+  }
+
+  // When button is released, nothing happens and the servo holds its position
 }
+
 
