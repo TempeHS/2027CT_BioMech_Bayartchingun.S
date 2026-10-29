@@ -32,38 +32,33 @@
 
 #include <Servo.h>
 
-<InlineEntity>Servo</InlineEntity> myservo; // Create servo object
-const int buttonPin = 2; // Push button connected to digital pin 2
-const int servoPin = 9;  // Servo signal wire connected to pin 9
+// Pin definitions
+const int BUTTON_PIN = 2; // Pin connected to the button
+const int SERVO_PIN  = 8; // Pin connected to the servo signal
 
-int currentAngle = 90;   // Starting position
-const int targetAngle = 180; // Angle to move toward when pressed
-const int angleStep = 2;   // Speed of movement
+// Position definitions
+const int ORIGINAL_POS = 0;   // Starting/resting position in degrees
+const int MOVED_POS    = 180;  // Position while holding the button
+
+#include <Servo.h>
+
+Servo myServo;
+
+const int buttonPin = 2;  // Connect push button to pin 2
+const int servoPin = 3;   // Connect servo signal wire to pin 3
 
 void setup() {
-  Serial.begin(115200); // Set baud rate to 9600
-  myservo.attach(servoPin); // Attach servo to pin 9
-  pinMode(buttonPin, INPUT_PULLUP); // Button uses internal pull-up resistor
-  myservo.write(currentAngle);
+  pinMode(buttonPin, INPUT_PULLUP); // Use internal pull-up resistor
+  myServo.attach(servoPin);
+  myServo.write(0);                 // Start at original position (0 degrees)
 }
 
 void loop() {
-  // Read button state (LOW means pressed when using INPUT_PULLUP)
-  int buttonState = digitalRead(buttonPin);
-
-  if (buttonState == LOW) {
-    // Move servo while button is held down
-    currentAngle += angleStep;
-    if (currentAngle > 180) {
-      currentAngle = 180; // Cap at 180 degrees
-    }
-    myservo.write(currentAngle);
-    Serial.print("Servo Angle: ");
-    Serial.println(currentAngle);
-    delay(20); // Control movement speed
+  // LOW means the button is pressed (with INPUT_PULLUP)
+  if (digitalRead(buttonPin) == LOW) {
+    myServo.write(180); // Move servo to 180 degrees while pressed
+  } else {
+    myServo.write(0);   // Return to original position (0 degrees) when released
   }
-
-  // When button is released, nothing happens and the servo holds its position
 }
-
 
