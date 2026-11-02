@@ -5,8 +5,8 @@
 platform arduino:avr 1.8.8
 
 # Libraries
-library Servo 1.3.0
 library 107-Arduino-Servo-RP2040 0.2.0
+library Servo 1.3.0
 
 # Devices (learned from successful uploads)
 device 0x10c4:0xea60 arduino:avr:uno
